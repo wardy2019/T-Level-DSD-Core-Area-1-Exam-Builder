@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T Level DSD – Core Area 1: Problem Solving (Full Notes)</title>
+  <meta name="description" content="Full, student-friendly revision notes for T Level DSD Core Area 1: Problem Solving – Computational Thinking, Algorithmic Design, and Strategies. Aligned to the specification, with examples, exam prompts, and glossary.">
+  <style>
+    /* Minimal CSS to match the user's simple example: clean body, readable code blocks, tidy tables */
+    :root{
+      --bg:#ffffff; --ink:#111827; --muted:#374151; --line:#e5e7eb; --panel:#f9fafb;
+      --codebg:#0f172a; --codefg:#e5e7eb; --accent:#1f6feb;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Noto Sans", sans-serif;
+    }
+    html, body{background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.6;}
+    body{max-width: 960px; margin: 0 auto; padding: 1.25rem;}
+    h1{font-size:1.9rem; margin:0 0 .25rem 0}
+    h2{font-size:1.5rem; margin:1.2rem 0 .4rem 0}
+    h3{font-size:1.15rem; margin:1rem 0 .25rem 0}
+    h4{font-size:1rem; margin:.8rem 0 .2rem 0}
+    p, ul, ol{margin:.4rem 0}
+    hr{border:0; border-top:1px solid var(--line); margin:1rem 0}
+    a{color:var(--accent)}
+    code{font-family:var(--mono)}
+    pre{background:var(--codebg); color:var(--codefg); padding:1rem; border-radius:8px; overflow:auto; border:1px solid #1f2937}
+    pre code{font-family:var(--mono)}
+    table{border-collapse:collapse; width:100%; margin:.6rem 0; font-size:.97rem}
+    th, td{border:1px solid var(--line); padding:.45rem .5rem; vertical-align:top}
+    th{background:var(--panel); text-align:left}
+    .small{color:var(--muted); font-size:.95rem}
+    .spec{font-variant-numeric: tabular-nums; background:#eef2ff; border:1px solid #c7d2fe; padding:.05rem .35rem; border-radius:.4rem}
+    .exam{background:#fef9c3; border:1px solid #fde68a; padding:.5rem .6rem; border-radius:.35rem}
+  </style>
+</head>
+<body>
+
+<h1>T Level DSD – Core Area 1: Problem Solving</h1>
+<h2>T Level DSD – Core Area 1: Problem Solving</h2>
+
+<p class="small">Friendly revision notes aligned with the T Level Digital Software Development specification. Clear explanations, concise examples, and exam prompts. Python examples use 3.10+. Where the term “code” is used, this refers to Python 3.10 or later.</p>
+
+<hr>
+
+<h2>1.1 Computational Thinking <span class="spec">1.1</span></h2>
+
+<h3>1.1.1 Definition & Purpose <span class="spec">1.1.1</span></h3>
+<p><strong>Computational thinking (CT)</strong> is a logical approach to solving problems so solutions can be represented as systems, processes, relationships, organisations of data, or <em>code</em>.</p>
+<ul>
+  <li><strong>Purpose:</strong> simplify complex problems, plan clearly, and enable implementation/testing in software.</li>
+  <li>CT is <em>not</em> coding itself—it's thinking like a programmer.</li>
+</ul>
+
+<h3>1.1.2 When to Use CT <span class="spec">1.1.2</span></h3>
+<ul>
+  <li>Designing systems/applications; planning features and data.</li>
+  <li>Writing, reviewing, or <em>debugging</em> code.</li>
+  <li>Translating real‑world processes into digital steps.</li>
+</ul>
+
+<h3>1.1.3 Benefits & Drawbacks <span class="spec">1.1.3</span></h3>
+<table>
+  <thead><tr><th>Benefits</th><th>Drawbacks</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Clarity before coding; better structure; supports reuse and modular design; easier collaboration.</td>
+      <td>Up‑front time/effort; may be unnecessary for very small tasks; can confuse if techniques are poorly applied.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>1.1.4 Components of CT <span class="spec">1.1.4</span></h3>
+<ul>
+  <li><strong>Decomposition:</strong> break a big problem into manageable parts.</li>
+  <li><strong>Pattern recognition:</strong> spot similarities to reuse logic and predict outcomes.</li>
+  <li><strong>Abstraction:</strong> focus on essentials; hide internal detail.</li>
+  <li><strong>Algorithmic design:</strong> create step‑by‑step solutions before coding.</li>
+</ul>
+
+<h3>1.1.5 Component pros/cons <span class="spec">1.1.5</span></h3>
+<table>
+  <thead><tr><th>Component</th><th>Benefits</th><th>Drawbacks / Risks</th></tr></thead>
+  <tbody>
+    <tr><td>Decomposition</td><td>Teamwork; clarity; isolate faults; easier testing</td><td>May lose big picture; accidental duplication across parts</td></tr>
+    <tr><td>Pattern recognition</td><td>Speeds delivery by reuse; predictable outcomes</td><td>False matches create fragile designs</td></tr>
+    <tr><td>Abstraction</td><td>Removes noise; simpler interfaces</td><td>Important details might be hidden; over‑generalisation</td></tr>
+    <tr><td>Algorithmic design</td><td>Clear logic ready for code; traceable decisions</td><td>Requires planning skill and discipline</td></tr>
+  </tbody>
+</table>
+
+<h3>1.1.6–1.1.8 Decomposition: purpose, tasks & use <span class="spec">1.1.6–1.1.8</span></h3>
+<p><strong>Purpose:</strong> make complex problems manageable by solving one coherent piece at a time.</p>
+<p><strong>Tasks (1.1.7):</strong></p>
+<ul>
+  <li>Identify the main features of a problem and characterise each.</li>
+  <li>Break the <em>problem</em> into smaller tasks.</li>
+  <li>Break the <em>solution</em> into smaller, testable parts/modules.</li>
+</ul>
+<p><strong>Apply it (1.1.8):</strong> Use decomposition for planning, building, and testing sub‑parts.</p>
+
+<h4>Worked example (app feature plan)</h4>
+<pre><code>Problem: Build a quiz app
+Decompose:
+- Question bank
+- Scoring
+- User interface
+- Persistence (save scores)
+- Settings & accessibility
+</code></pre>
+
+<h3>1.1.9–1.1.10 Representing decomposition <span class="spec">1.1.9–1.1.10</span></h3>
+<ul>
+  <li>Block diagrams (components & relationships)</li>
+  <li>Information flow diagrams (data in/out)</li>
+  <li>Flowcharts (logic & steps)</li>
+  <li>Code structure (functions, modules, classes)</li>
+  <li>Written descriptions (tasks/sub‑tasks)</li>
+</ul>
+
+<h4>Mini flow (ASCII)</h4>
+<pre><code>[Start] -> [Get user name] -> &lt;Is name empty?&gt; --Yes--> [Ask again]
+                                        |
+                                       No
+                                        v
+                                   [Welcome] -> [End]
+</code></pre>
+
+<h3>1.1.11–1.1.12 Pattern recognition: purpose & use <span class="spec">1.1.11–1.1.12</span></h3>
+<ul>
+  <li>Find trends/similarities within and between problems and processes.</li>
+  <li>Identify common features between a new problem and existing solutions.</li>
+  <li>Make predictions/assumptions based on patterns (then test with data).</li>
+</ul>
+<p><em>Example:</em> Reuse a login pattern (inputs, validation, success/fail) across multiple apps.</p>
+
+<h3>1.1.13–1.1.16 Abstraction: purpose, tasks & application <span class="spec">1.1.13–1.1.16</span></h3>
+<p><strong>Purpose:</strong> avoid unnecessary detail, keep focus on what matters.</p>
+<p><strong>Tasks (1.1.14):</strong></p>
+<ul>
+  <li>Identify information that is needed.</li>
+  <li>Filter out unnecessary details.</li>
+  <li>Hide details of internal workings.</li>
+</ul>
+<p><strong>Use (1.1.15–1.1.16):</strong></p>
+<ul>
+  <li>Inputs required; expected outputs/outcomes.</li>
+  <li>Things that vary vs things that remain constant.</li>
+  <li>Key actions the solution must perform; repeated processes.</li>
+</ul>
+
+<h4>Example (checkout abstraction)</h4>
+<pre><code>Inputs: items, delivery address, card details
+Outputs: order confirmation
+Varies: items in basket, delivery options
+Constant: payment authorisation process
+Key actions: calculate total, take payment, generate receipt
+</code></pre>
+
+<h3>1.1.17 Interrelationships within CT <span class="spec">1.1.17</span></h3>
+<p>Typical flow: <strong>Decompose</strong> a problem → use <strong>Pattern recognition</strong> in parts → apply <strong>Abstraction</strong> to hide non‑essentials → perform <strong>Algorithmic design</strong> to outline steps.</p>
+<p><strong>Judgement:</strong> choose components based on problem size, risk, and constraints—and justify why.</p>
+
+<hr>
+
+<h2>1.2 Algorithmic Design <span class="spec">1.2</span></h2>
+
+<h3>1.2.1 Definition, characteristics & purpose <span class="spec">1.2.1</span></h3>
+<p>An <strong>algorithm</strong> is a clear, step‑by‑step set of instructions that solves a problem or completes a task.</p>
+<ul>
+  <li><strong>Characteristics:</strong> unambiguous; logical steps; defined start/end; reusable with different inputs.</li>
+  <li><strong>Purpose:</strong> plan before coding; ensure consistency; enable efficient solutions.</li>
+</ul>
+
+<h3>1.2.2 Ways to express algorithms <span class="spec">1.2.2</span></h3>
+<ul>
+  <li><strong>Flowcharts:</strong> Terminators, Processes, Sub‑processes, Decisions, Inputs/Outputs, Arrows, Labels.</li>
+  <li><strong>Written descriptions:</strong> numbered/indented plain English.</li>
+  <li><strong>Code:</strong> Python 3.10+.</li>
+</ul>
+
+<h4>Same logic in three notations</h4>
+<p><strong>Written</strong></p>
+<pre><code>1. Ask for age
+2. If age &gt;= 18 -&gt; print "Adult"
+3. Else -&gt; print "Child"
+</code></pre>
+<p><strong>Flow (ASCII)</strong></p>
+<pre><code>[Start] -&gt; [Input age] -&gt; &lt;age &gt;= 18?&gt; --Yes--> [Print "Adult"] -&gt; [End]
+                                 |
+                                No
+                                 v
+                         [Print "Child"] -&gt; [End]
+</code></pre>
+<p><strong>Python (3.10+)</strong></p>
+<pre><code>age = int(input("Age: "))
+print("Adult" if age &gt;= 18 else "Child")
+</code></pre>
+
+<h3>1.2.3–1.2.5 Pros & cons by notation <span class="spec">1.2.3–1.2.5</span></h3>
+<table>
+  <thead><tr><th>Notation</th><th>Benefits</th><th>Drawbacks</th></tr></thead>
+  <tbody>
+    <tr><td>Flowcharts</td><td>Visual; clarifies branching; communicates to non‑coders</td><td>Unwieldy for complex logic; slower to update</td></tr>
+    <tr><td>Written descriptions</td><td>Quick; language‑independent; easy to draft</td><td>Can be ambiguous; not executable</td></tr>
+    <tr><td>Code</td><td>Exact; testable; scalable</td><td>Requires language knowledge; syntax‑specific</td></tr>
+  </tbody>
+</table>
+
+<h3>1.2.6 Control of order: sequence, selection, iteration <span class="spec">1.2.6</span></h3>
+<p><strong>Sequence</strong></p>
+<pre><code>name = input("Name: ")
+print(f"Hello, {name}")
+</code></pre>
+<p><strong>Selection</strong></p>
+<pre><code>score = 72
+if score &gt;= 80:
+    print("Distinction")
+elif score &gt;= 60:
+    print("Merit")
+else:
+    print("Pass")
+</code></pre>
+<p><strong>Iteration</strong></p>
+<pre><code>for i in range(3):
+    print("Loop", i)
+</code></pre>
+
+<h3>1.2.7–1.2.8 Determine purpose & output (dry run) <span class="spec">1.2.7–1.2.8</span></h3>
+<p>Follow steps to explain what an algorithm does and predict outputs for given inputs.</p>
+<pre><code>n = 5
+total = 0
+while n &gt; 0:
+    total += n
+    n -= 1
+print(total)  # Output: 15
+</code></pre>
+
+<h3>1.2.9 Identify errors <span class="spec">1.2.9</span></h3>
+<ul>
+  <li><strong>Logic errors:</strong> wrong conditions/order; program runs but gives wrong results.</li>
+  <li><strong>Syntax errors:</strong> break language rules; caught by interpreter.</li>
+  <li><strong>Runtime errors:</strong> occur when executing (e.g., division by zero).</li>
+</ul>
+
+<h3>1.2.10 Correct errors <span class="spec">1.2.10</span></h3>
+<p><strong>Fix overlapping grade boundaries (logic)</strong></p>
+<pre><code>def grade(score: int) -&gt; str:
+    if score &gt;= 80: return "A"
+    elif score &gt;= 70: return "B"
+    elif score &gt;= 60: return "C"
+    else: return "D"
+</code></pre>
+
+<h3>1.2.11 Translate between notations <span class="spec">1.2.11</span></h3>
+<p>Convert flowcharts ↔ written steps ↔ code without changing the logic.</p>
+
+<h3>1.2.12 Design algorithms & solutions (using actions) <span class="spec">1.2.12</span></h3>
+<pre><code># Sum of even numbers up to N (inclusive)
+def sum_evens(n: int) -&gt; int:
+    total = 0
+    for x in range(0, n + 1, 2):
+        total += x
+    return total
+</code></pre>
+
+<hr>
+
+<h2>1.3 Strategies <span class="spec">1.3</span></h2>
+
+<h3>1.3.1 Approaches & when used <span class="spec">1.3.1</span></h3>
+<ul>
+  <li><strong>Top‑down:</strong> start with the whole system and break into parts. Use when designing from scratch.</li>
+  <li><strong>Bottom‑up:</strong> assemble from existing modules. Use when reusing libraries/components.</li>
+  <li><strong>Modularisation:</strong> divide into independent modules. Use for teamwork, testing, reuse, and parallel development.</li>
+</ul>
+
+<h3>1.3.2 Benefits & drawbacks <span class="spec">1.3.2</span></h3>
+<table>
+  <thead><tr><th>Approach</th><th>Benefits</th><th>Drawbacks</th></tr></thead>
+  <tbody>
+    <tr><td>Top‑down</td><td>Strong overall plan; clear scope and sequencing</td><td>May miss low‑level constraints early</td></tr>
+    <tr><td>Bottom‑up</td><td>Fast via reuse; proven parts</td><td>Integration issues without big‑picture plan</td></tr>
+    <tr><td>Modularisation</td><td>Supports teams; easier testing and maintenance</td><td>Requires interface definition and coordination</td></tr>
+  </tbody>
+</table>
+
+<h3>1.3.3 Root cause analysis (RCA): purpose & when <span class="spec">1.3.3</span></h3>
+<p>Find the underlying cause of a problem (not just symptoms). Use when issues recur, are high‑impact, or involve safety/security.</p>
+
+<h3>1.3.4 RCA techniques & follow‑up actions <span class="spec">1.3.4</span></h3>
+<p><strong>Techniques:</strong></p>
+<ul>
+  <li><strong>Five Whys:</strong> repeatedly ask “Why?” until the root cause emerges.</li>
+  <li><strong>FMEA (Failure Mode & Effects Analysis):</strong> list possible failures, their effects, and mitigations.</li>
+  <li><strong>ETA (Event Tree Analysis):</strong> map possible outcomes after a triggering event.</li>
+</ul>
+<p><strong>After RCA:</strong> <em>Log</em> the issue and findings; <em>Close</em> when resolved; <em>Escalate</em> to manager/specialist/third party when needed.</p>
+
+<h3>1.3.5 High‑level problem‑solving process (6 steps) <span class="spec">1.3.5</span></h3>
+<p>Define the problem → Gather information → Analyse the information → Make a plan of action → Implement a solution → Review the solution.</p>
+
+<h3>1.3.6 Interrelationships (problems ↔ strategies) & suitability <span class="spec">1.3.6</span></h3>
+<p>Match strategy to problem type, constraints, risks, and team context. Be ready to justify why the chosen strategy is suitable.</p>
+
+<hr>
+
+<h2>Bringing It Together: Interrelationships (Exam Focus)</h2>
+
+<p>Quick combinations to justify in answers. Link CT components, notations, and strategies to the scenario.</p>
+
+<pre><code>New build from scratch
+- CT: Decomposition -&gt; Abstraction -&gt; Algorithmic design
+- Notation: Block/flow diagrams -&gt; written steps -&gt; code
+- Strategy: Top‑down + Modularisation
+- Why: big picture first; define modules; hide details; implement cleanly
+
+Integrate existing components
+- CT: Pattern recognition + Abstraction
+- Notation: Interface specs, code
+- Strategy: Bottom‑up + Modularisation
+- Why: reuse known parts; focus on interfaces; assemble safely
+
+Recurring crash/bug
+- CT: Decomposition (failure paths) + Algorithmic design (fix)
+- Notation: Logs/flow of failure -&gt; patch plan in code
+- Strategy: Root cause analysis (Five Whys / FMEA)
+- Why: find true cause; design targeted, testable fix
+
+Complex multi-branch workflow
+- CT: Algorithmic design + Abstraction
+- Notation: Flowchart + state table (written)
+- Strategy: Top‑down then Modularisation
+- Why: map decisions clearly; encapsulate subsystems
+</code></pre>
+
+<div class="exam">
+  <strong>Exam practice prompts:</strong>
+  <ul>
+    <li>Explain when top‑down is preferable to bottom‑up for a given scenario.</li>
+    <li>Justify why abstraction is essential when designing module interfaces.</li>
+    <li>Translate a written description into a flowchart, then Python (keep logic identical).</li>
+    <li>Identify and correct logic errors in a grading algorithm.</li>
+    <li>Use Five Whys to move from symptom to root cause and propose a fix.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Glossary (Core Area 1)</h2>
+<p class="small">Selected key terms from your glossary (spec refs shown where applicable).</p>
+<ul>
+  <li><strong>Computational Thinking</strong> (1.1.1): a logical approach to solving problems by breaking them into steps.</li>
+  <li><strong>Decomposition</strong> (1.1.4): breaking a large problem into smaller parts.</li>
+  <li><strong>Pattern Recognition</strong> (1.1.4): spotting similarities or repeated logic.</li>
+  <li><strong>Abstraction</strong> (1.1.4): focusing on essential details and hiding the rest.</li>
+  <li><strong>Algorithmic Design</strong> (1.1.4): creating a step‑by‑step plan to solve a problem before coding.</li>
+  <li><strong>Inputs/Outputs</strong> (1.1.14): data in vs results out.</li>
+  <li><strong>Algorithm</strong> (1.2.1): a clear, step‑by‑step set of instructions.</li>
+  <li><strong>Flowchart</strong> (1.2.2): visual diagram using standard symbols.</li>
+  <li><strong>Written Description</strong> (1.2.2): plain‑English steps, sequenced.</li>
+  <li><strong>Code</strong> (1.2.2): program implementation (Python ≥ 3.10).</li>
+  <li><strong>Sequence</strong>, <strong>Selection</strong>, <strong>Iteration</strong> (1.2.6): order, decision, repetition.</li>
+  <li><strong>Dry Run</strong> (1.2.7): manually trace an algorithm to predict outputs.</li>
+  <li><strong>Logic/Syntax/Runtime Error</strong> (1.2.9–1.2.10): types of errors and how they surface.</li>
+  <li><strong>Translate Algorithm</strong> (1.2.11): convert between notations unchanged.</li>
+  <li><strong>Design Algorithms</strong> (1.2.12): build new logic with sequence, selection, iteration.</li>
+  <li><strong>Top‑down / Bottom‑up / Modularisation</strong> (1.3.1): complementary strategies.</li>
+  <li><strong>Root Cause Analysis</strong> (1.3.3): find underlying cause, not just symptoms.</li>
+  <li><strong>Five Whys / FMEA / ETA</strong> (1.3.4): RCA techniques.</li>
+  <li><strong>High‑level process</strong> (1.3.5): Define → Gather → Analyse → Plan → Implement → Review.</li>
+  <li><strong>Escalation</strong> (1.3.4): pass to an appropriate manager/specialist/third party.</li>
+</ul>
+
+<hr>
+<p class="small">© 2025 T Level Digital Software Development reference. For educational and knowledge‑base use only.</p>
+
+</body>
+</html>
